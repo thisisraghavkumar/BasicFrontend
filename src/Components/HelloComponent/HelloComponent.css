@@ -1,0 +1,27 @@
+h1 {
+    background-color: orangered;
+    margin: 0;
+}
+
+h2 {
+    background-color: whitesmoke;
+    margin: 0;
+}
+
+h3 {
+    background-color: green;
+    margin: 0;
+}
+
+.helloBox {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+@media screen and (min-width: 480px) {
+    h1 {
+        color: green;
+    }
+}

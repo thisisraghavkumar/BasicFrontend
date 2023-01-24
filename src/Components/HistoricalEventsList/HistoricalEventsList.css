@@ -1,0 +1,7 @@
+.eventListBox {
+    border: 1px solid black;
+    overflow-y: scroll;
+    height: 100%;
+    max-height: 100vh;
+    width: 66%;
+}

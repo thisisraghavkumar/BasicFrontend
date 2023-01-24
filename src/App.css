@@ -1,0 +1,19 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.appSurface {
+    background: rgb(255,142,0);
+    background: linear-gradient(161deg, rgba(255,142,0,1) 0%, rgba(219,48,48,1) 50%, rgba(206,255,0,1) 100%);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    min-height: 100vh;
+}
+
+#signInButtonDiv {
+    background-color: aqua;
+    width: 100%;
+    padding: 10px 0px;;
+}

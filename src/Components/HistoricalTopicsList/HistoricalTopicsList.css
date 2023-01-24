@@ -1,0 +1,14 @@
+.topicsList {
+    border: 1px solid black;
+    height: fit-content;
+    width:33%;
+    max-height: 100%;
+}
+
+.topicListItem {
+    max-width: 250px
+}
+
+.topicListItemTextbox {
+    text-overflow: ellipsis;
+}
