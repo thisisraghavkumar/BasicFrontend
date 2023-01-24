@@ -12,8 +12,8 @@ export const msalConfig = {
 
 // Add scopes here for ID token to be used at Microsoft identity platform endpoints.
 export const loginRequest = {
- authNscopes: ["User.Read", "https://orgc82df470.crm.dynamics.com/user_impersonation"],
- authZscopes: ["https://orgc82df470.crm.dynamics.com/.default"]
+ authNscopes: ["User.Read", "https://dataverseorg.crm.dynamics.com/user_impersonation"],
+ authZscopes: ["https://dataverseorg.crm.dynamics.com/.default"]
 };
 
 // Add the endpoints here for Microsoft Graph API services you'd like to use.
@@ -22,8 +22,8 @@ export const graphConfig = {
 };
 
 export const dataverseConfig = {
-  environmentEndpoint: "https://orgc82df470.crm.dynamics.com",
-  dataApiEndpoint: "https://orgc82df470.api.crm.dynamics.com/api/data/v9.2",
+  environmentEndpoint: "https://dataverseorg.crm.dynamics.com",
+  dataApiEndpoint: "https://dataverseorg.api.crm.dynamics.com/api/data/v9.2",
   eventsTable: {
     Id: "cr17b_eventses",
     Properties: {
