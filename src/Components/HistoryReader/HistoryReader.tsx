@@ -1,10 +1,12 @@
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
-import { Button } from "@mui/material";
-import React from "react";
+import { Button, getPaginationItemUtilityClass } from "@mui/material";
+import React, { useState } from "react";
 import { dataverseConfig, loginRequest } from "../../authConfig";
 import { GetEventfromJson, GetTopicFromJson } from "../../Helper/JsonConvertorHelper";
 import { getData } from "../../Services/DataverseService";
+import { EventsInputForm } from "../EventsInputForm/EventsInputForm";
 import { HistoryReaderLayout } from "../HistoryReaderLayout/HistoryReaderlayout";
+import { TopicsInputForm } from "../TopicssInputForm/TopicsInputForm";
 
 export const HistoryReader = () => {
     const {instance, accounts} = useMsal();
@@ -12,7 +14,9 @@ export const HistoryReader = () => {
     var isAuthenticated = useIsAuthenticated();
     var [topics, setTopics] = React.useState([]);
     var [events, setEvents] = React.useState([]);
-    
+    var [isCreateEventOpen, setIsCreateEventOpen] = useState(false);
+    var [isCreateTopicOpen, setIsCreateTopicOpen] = useState(false);
+
     var getTopics = React.useCallback(() => {
         var url = dataverseConfig.dataApiEndpoint + '/' + dataverseConfig.topicTable.Id;
         const propertyName = dataverseConfig.topicTable.Properties;
@@ -58,7 +62,27 @@ export const HistoryReader = () => {
     return isAuthenticated ? <>
         <Button onClick={() => getToken()}>Get Token</Button>
         <Button onClick={() => getAllTables()} disabled={bearerToken.length == 0}>Get Data</Button>
+        <Button onClick={() => setIsCreateEventOpen(true)} disabled={bearerToken.length == 0}>Create Event</Button>
+        <Button onClick={() => setIsCreateTopicOpen(true)} disabled={bearerToken.length == 0}>Create Topic</Button>
         <HistoryReaderLayout events={events} topics={topics} />
+        <EventsInputForm topics={topics} open={isCreateEventOpen} token={bearerToken}
+            onClose={() => setIsCreateEventOpen(false)}
+            handleAddSuccess={(event) => {
+                console.log("Successfully added an event!");
+                console.log(event);
+                getEvents();
+                setIsCreateEventOpen(false);
+            }}
+        />
+        <TopicsInputForm open={isCreateTopicOpen} token={bearerToken}
+            onClose={() => setIsCreateTopicOpen(false)}
+            handleAddSuccess={(resp) => {
+                console.log("Successfully added topic!");
+                console.log(resp);
+                getTopics();
+                setIsCreateTopicOpen(false);
+            }}
+        />
     </>:
     <>
         Login First!
