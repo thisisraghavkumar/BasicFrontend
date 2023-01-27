@@ -51,6 +51,7 @@ export const EventsInputForm = (props: IEventInputFormProps) => {
                     onChange={(event) => {
                         setName(event.target.value ?? '');
                     }}
+                    fullWidth
                 />
                 <TextField id="eventDate"
                     required
@@ -58,6 +59,7 @@ export const EventsInputForm = (props: IEventInputFormProps) => {
                     onChange={(event) => {
                         setDate(event.target.value ?? '');
                     }}
+                    fullWidth
                 />
                 <FormControlLabel control={<Switch id="isEventDateExact" defaultChecked onChange={(_, checked) => {
                     setisexact(checked);
@@ -69,6 +71,7 @@ export const EventsInputForm = (props: IEventInputFormProps) => {
                     onChange={(event) => {
                         setCity(event.target.value ?? '');
                     }}
+                    fullWidth
                 />
                 <TextField id="eventCountry"
                     label="Country Of Occurrence"
@@ -76,6 +79,7 @@ export const EventsInputForm = (props: IEventInputFormProps) => {
                     onChange={(event) => {
                         setCountry(event.target.value ?? '');
                     }}
+                    fullWidth
                 />
                 <TextField id="eventTopic"
                     required
@@ -85,6 +89,7 @@ export const EventsInputForm = (props: IEventInputFormProps) => {
                     onChange={(event) => {
                         setTopicId(event.target.value ?? '');
                     }}
+                    fullWidth
                 >
                     {
                         topics.map((topic) => {

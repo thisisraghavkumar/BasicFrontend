@@ -41,6 +41,7 @@ export const TopicsInputForm = (props: ITopicInputFormProps) => {
                         console.log(event.target.value);
                         setName(event.target.value ?? '');
                     }}
+                    fullWidth
                 />
             </DialogContent>
             <DialogActions>
